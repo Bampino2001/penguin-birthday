@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Penguin</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="stars"></div>
+
+<!-- Sticky Top Progress Indicator -->
+<div class="progress-container hidden" id="progressContainer">
+  <div class="chapter-title" id="chapterTitle">Chapter 1 of 11</div>
+  <div class="progress-bar-bg">
+    <div class="progress-bar-fill" id="progressBarFill"></div>
+  </div>
+</div>
+
+<audio autoplay loop id="bgMusic">
+  <source src="assets/intro-music.mp3" type="audio/mp3">
+</audio>
+
+<!-- Cover Page -->
+<section class="story-section" id="heroScene">
+  <h1>Happy Birthday, Penguin 🐧</h1>
+  <p>I made something small for you.</p>
+  <button class="next-btn" onclick="goToScene('scene0')">Begin The Journey ➔</button>
+</section>
+
+<!-- Chapter 1: Childhood (scene0) -->
+<section class="story-section hidden" id="scene0" data-chapter="Chapter 1: The Girl Before Us">
+  <img src="assets/child.jpeg" class="story-img">
+  <h2>Before Us...</h2>
+  <p>Before us... there was already someone beautiful growing into herself.</p>
+  <p class="thought-bubble">"Aww, he started with me, not with us." ❤️</p>
+  
+  <div class="nav-row">
+    <button class="back-btn" onclick="goToScene('heroScene')">   Back</button>
+    <button class="next-btn" onclick="goToScene('sceneLawyer')">Next Chapter ➔</button>
+  </div>
+</section>
+
+<!-- Chapter 2: Lawyer Journey (sceneLawyer) -->
+<section class="story-section hidden" id="sceneLawyer" data-chapter="Chapter 2: The Lawyer Journey">
+  <img src="assets/school.jpeg" class="story-img">
+  <h2>The Strongest Foundation</h2>
+  <p>From school uniforms... to becoming the <strong>idwala</strong> that you are today 😂.</p>
+  <p>I've always admired how hard you work, how seriously you take your goals, and how much you've achieved.</p>
+  <p class="quote">Unanane licence before me 😑.</p>
+  
+  <div class="nav-row">
+    <button class="back-btn" onclick="goToScene('scene0')">   Back</button>
+    <button class="next-btn" onclick="goToScene('scene1')">Next Chapter ➔</button>
+  </div>
+</section>
+
+<!-- Chapter 3: First Chat (scene1) -->
+<section class="story-section hidden" id="scene1" data-chapter="Chapter 3: The First Chat">
+  <img src="assets/chat.jpeg" class="story-img">
+  <h2>Exhibit A: The Beginning of Trouble 😂</h2>
+  <p>You didn't even want boys talking to you. So naturally... you lied and said your name was Natasha 😂</p>
+  
+  <div class="nav-row">
+    <button class="back-btn" onclick="goToScene('sceneLawyer')">   Back</button>
+    <button class="next-btn" onclick="goToScene('scene2')">Next Chapter ➔</button>
+  </div>
+</section>
+
+<!-- Chapter 4: Functions Chaos (scene2) -->
+<section class="story-section hidden" id="scene2" data-chapter="Chapter 4: Functions Chaos">
+  <img src="assets/chat.jpeg" class="story-img">
+  <h2>The Functions Chaos</h2>
+  <p>And thus began the greatest misunderstanding emzini wethu 😂</p>
+  <p class="quote">"You came late wadlala ngathi 😑"</p>
+  <p class="quote">"You were not clear enough Ntuthuko Haaw 😂"</p>
+  
+  <div class="nav-row">
+    <button class="back-btn" onclick="goToScene('scene1')">   Back</button>
+    <button class="next-btn" onclick="goToScene('scenePaper')">Next Chapter ➔</button>
+  </div>
+</section>
+
+<!-- Chapter 5: Paper Throwing (scenePaper) -->
+<section class="story-section hidden" id="scenePaper" data-chapter="Chapter 5: Playful Teasing">
+  <h2>Watch out Janet! 📄😂</h2>
+  <p id="paperResponse">Click the paper to throw it! 🚀</p>
+  
+  <div class="paper-game-area">
+    <div class="paper-floor" id="paperFloor"></div>
+    <div class="paper-ball" id="interactivePaper" onclick="throwPaperBall()">🗞️</div>
+  </div>
+
+  <div class="nav-row">
+    <button class="back-btn" onclick="goToScene('scene2')">   Back</button>
+    <button class="next-btn hidden" id="paperNextBtn" onclick="goToScene('sceneTap')">Next Chapter ➔</button>
+  </div>
+</section>
+
+<!-- Chapter 6: Tap Encounter (sceneTap) -->
+<section class="story-section hidden" id="sceneTap" data-chapter="Chapter 6: The Legendary Tap Encounter">
+  <h2>The Tap Encounter 😂</h2>
+  <p>Some people remember their first kiss. I remember being denied ukuvulelwa umpompi. 💀</p>
+  <p>I romantically asked you to open the tap for me. You refused.</p>
+  
+  <div class="tap-game-area">
+    <button class="penguin-btn" id="evadingBtn" onclick="handleTapClick()">Open The Tap 🚰</button>
+  </div>
+  <p id="tapResponse" class="tap-reply-text"></p>
+
+  <div class="nav-row">
+    <button class="back-btn" onclick="goToScene('scenePaper')">   Back</button>
+    <button class="next-btn hidden" id="tapNextBtn" onclick="goToScene('scene3')">Next Chapter ➔</button>
+  </div>
+</section>
+
+<!-- Chapter 7: Our Spot (scene3) -->
+<section class="story-section hidden" id="scene3" data-chapter="Chapter 7: Our Spot">
+  <img src="assets/first-meet.jpeg" class="story-img">
+  <h2>Our Spot ❤️</h2>
+  <p>There are many places in the world. But somehow this little spot became one of my favorites.</p>
+  <p>We stayed there talking, laughing, cuddling, and forgetting about the world.</p>
+  
+  <div class="nav-row">
+    <button class="back-btn" onclick="goToScene('sceneTap')">   Back</button>
+    <button class="next-btn" onclick="goToScene('sceneQuiz')">Next Chapter ➔</button>
+  </div>
+</section>
+
+<!-- Chapter 8: The Inside Jokes Quiz (sceneQuiz) -->
+<section class="story-section hidden" id="sceneQuiz" data-chapter="Chapter 8: Inside Jokes Quiz">
+  <h2>Let's see how well you remember our story... 🤔</h2>
+  
+  <div class="quiz-container">
+    <div id="quizBox">
+      <!-- Injected dynamically by script.js -->
+    </div>
+    <p id="quizFeedback" class="quiz-feedback-text"></p>
+  </div>
+
+  <div class="nav-row">
+    <button class="back-btn" id="quizBackBtn" onclick="goToScene('scene3')">   Back</button>
+    <button class="next-btn hidden" id="quizNextBtn" onclick="goToScene('scene4')">Next Chapter ➔</button>
+  </div>
+</section>
+
+<!-- Chapter 9: Owl Transition (scene4) -->
+<section class="story-section hidden" id="scene4" data-chapter="Chapter 9: The Owl Moment">
+  <h2>The Owl Has Arrived... 🦉</h2>
+  <p>Then while we were sitting there... an owl suddenly flew right in front of us 😂</p>
+  <p class="instruction-text">Click the interactive owl below to unlock our memories!</p>
+  
+  <div class="owl-stage">
+    <div class="owl-3d-button" id="interactiveOwl" onclick="triggerOwlFlight()">🦉</div>
+  </div>
+
+  <div class="nav-row">
+    <button class="back-btn" id="owlBackBtn" onclick="goToScene('sceneQuiz')">   Back</button>
+    <button class="next-btn hidden" id="owlNextBtn" onclick="goToScene('scene5')">Unlock Memories ➔</button>
+  </div>
+</section>
+
+<!-- Chapter 10: Happy Memories Gallery (scene5) -->
+<section class="story-section hidden" id="scene5" data-chapter="Chapter 10: Happy Memories">
+  <h2>Happy Memories Together ❤️</h2>
+  <p>Some moments quietly became part of me forever. You always looked happiest when laughing 😂❤️</p>
+  
+  <div class="memory-gallery">
+    <div class="gallery-item"><img src="assets/together1.jpeg"><span>📸 Memory 1</span></div>
+    <div class="gallery-item"><img src="assets/together2.jpeg"><span>📸 Memory 2</span></div>
+    <div class="gallery-item"><img src="assets/together3.jpeg"><span>📸 Memory 3</span></div>
+    <div class="gallery-item"><img src="assets/together4.jpeg"><span>📸 Memory 4</span></div>
+    <div class="gallery-item"><img src="assets/together5.jpeg"><span>📸 Memory 5</span></div>
+  </div>
+
+  <div class="gif-container">
+    <img src="assets/together-clip.gif" class="story-gif">
+    <p class="video-caption">A little moment captured forever 🎥</p>
+  </div>
+
+  <div class="nav-row">
+    <button class="back-btn" onclick="goToScene('scene4')">   Back</button>
+    <button class="next-btn" onclick="goToScene('sceneVoice')">Next Chapter ➔</button>
+  </div>
+</section>
+
+<!-- Chapter 11: Voice Note (sceneVoice) -->
+<section class="story-section hidden" id="sceneVoice" data-chapter="Chapter 11: Her Actual Voice 😭">
+  <h2>There was one thing I couldn't leave out...A Voice I Still Smile Hearing ❤️</h2>
+  <p class="pulse-text" id="voiceInstruction">Press play.</p>
+  
+  <audio controls class="voice-note" id="voiceNotePlayer">
+    <source src="assets/voice-note.mp3" type="audio/mp3">
+  </audio>
+  
+  <p>And hearing it again still feels special.</p>
+  
+  <div class="nav-row">
+    <button class="back-btn" onclick="goToScene('scene5')">   Back</button>
+    <button class="next-btn" onclick="goToScene('scene6')">Final Chapter ➔</button>
+  </div>
+</section>
+
+<!-- Page 12: Final Message (scene6) -->
+<section class="story-section hidden" id="scene6" data-chapter="The End of the Book">
+  <h1>Happy Birthday Penguin 🐧</h1>
+  <div class="final-letter">
+    <p>Thank you for the laughs.</p>
+    <p>Thank you for the memories.</p>
+    <p>Thank you for being part of a chapter of my life I'll always smile about.</p>
+    <p class="highlight-wish">I hope this year brings you happiness, success, and everything you're working so hard for.</p>
+  </div>
+  <h2>Enjoy your day ❤️ Ngyakthanda</h2>
+  
+  <div class="nav-row">
+    <button class="back-btn" onclick="goToScene('heroScene')">   Re-read Book</button>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
